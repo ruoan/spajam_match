@@ -16,6 +16,8 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title="MATCH"
+        
         if(self.result)!{
             self.resultLabel.text = "成功!"
         } else {
@@ -30,6 +32,17 @@ class ResultViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func goNext(_ sender: Any) {
+        let next:PaymentViewController = storyboard!.instantiateViewController(withIdentifier: "paymentView") as! PaymentViewController
+        
+        next.result = self.result
+        next.pay = 7000
+        next.total = 21000
+        
+        let navi = UINavigationController(rootViewController: next)
+        
+        self.present(navi,animated: true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

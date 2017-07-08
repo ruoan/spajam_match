@@ -16,6 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let titlebg:UIColor = UIColor.rgb(r: 255, g: 241, b: 2, alpha: 1.0)
+        let titlefont:UIColor = UIColor.rgb(r: 2, g: 185, b: 229, alpha: 1.0)
+        
+        UINavigationBar.appearance().barTintColor = titlebg
+        //ナビゲーションのタイトル文字列の色を変更
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : titlefont]
+
         return true
     }
 
