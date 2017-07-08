@@ -49,6 +49,7 @@ PODS:
   - Charts (3.0.2):
     - Charts/Core (= 3.0.2)
   - Charts/Core (3.0.2)
+  - SVProgressHUD (2.1.2)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
@@ -76,16 +77,22 @@ DEPENDENCIES:
   - AWSSNS
   - AWSSQS
   - Charts
+  - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
   - SwiftyJSON
 
 EXTERNAL SOURCES:
   Alamofire-SwiftyJSON:
     :git: https://github.com/SwiftyJSON/Alamofire-SwiftyJSON.git
+  SVProgressHUD:
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
 
 CHECKOUT OPTIONS:
   Alamofire-SwiftyJSON:
     :commit: 32ebe5c9166e542548aa53db77599b97ffd0667a
     :git: https://github.com/SwiftyJSON/Alamofire-SwiftyJSON.git
+  SVProgressHUD:
+    :commit: 7e3139d2d56b336e48c178cc4605966191f4ac24
+    :git: https://github.com/SVProgressHUD/SVProgressHUD.git
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
@@ -113,8 +120,9 @@ SPEC CHECKSUMS:
   AWSSNS: 812baa3f5dd5e53da69c37fb8b451e52d0735821
   AWSSQS: bea4c7b93c011c7765a071b01ad74949d62c1d76
   Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
+  SVProgressHUD: d65371a8e4482380deddb9fe60e14e59ddb30eb3
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 6b03aeb0240f3f03530bea0f1568ea0ca0eb74dd
+PODFILE CHECKSUM: 9fad57dba75a750546e1e69e5764e39f6428d860
 
 COCOAPODS: 1.2.1

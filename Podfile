@@ -32,6 +32,8 @@ pod 'AWSAutoScaling'
     pod 'AWSSimpleDB'
     pod 'AWSSNS'
     pod 'AWSSQS'
+    pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
+
 
 post_install do |installer|
 	installer.pods_project.targets.each do |target|

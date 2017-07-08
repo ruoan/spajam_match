@@ -13,6 +13,8 @@
 		FA030A3E1F10FE0100027CD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA030A3C1F10FE0100027CD4 /* Main.storyboard */; };
 		FA030A401F10FE0100027CD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA030A3F1F10FE0100027CD4 /* Assets.xcassets */; };
 		FA030A431F10FE0200027CD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA030A411F10FE0200027CD4 /* LaunchScreen.storyboard */; };
+		FA5919DC1F11014C008A859B /* EnterRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5919DB1F11014C008A859B /* EnterRoomViewController.swift */; };
+		FA5919DE1F11055B008A859B /* PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5919DD1F11055B008A859B /* PHAsset.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		FA030A3F1F10FE0100027CD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA030A421F10FE0200027CD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA030A441F10FE0200027CD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA5919DB1F11014C008A859B /* EnterRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterRoomViewController.swift; sourceTree = "<group>"; };
+		FA5919DD1F11055B008A859B /* PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAsset.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,8 @@
 				FA030A3F1F10FE0100027CD4 /* Assets.xcassets */,
 				FA030A411F10FE0200027CD4 /* LaunchScreen.storyboard */,
 				FA030A441F10FE0200027CD4 /* Info.plist */,
+				FA5919DB1F11014C008A859B /* EnterRoomViewController.swift */,
+				FA5919DD1F11055B008A859B /* PHAsset.swift */,
 			);
 			path = match;
 			sourceTree = "<group>";
@@ -211,8 +217,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5919DE1F11055B008A859B /* PHAsset.swift in Sources */,
 				FA030A3B1F10FE0100027CD4 /* ViewController.swift in Sources */,
 				FA030A391F10FE0100027CD4 /* AppDelegate.swift in Sources */,
+				FA5919DC1F11014C008A859B /* EnterRoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +386,7 @@
 				FA030A491F10FE0200027CD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
