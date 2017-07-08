@@ -9,9 +9,21 @@
 import UIKit
 
 class PaymentViewController: UIViewController {
+    
+    var result:Bool?
+    var pay:Int?
+    var total:Int?
 
+    @IBOutlet weak var payLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "MATCH"
+        
+        self.payLabel.text = "¥" + (pay?.decimalStr)!
+        self.totalLabel.text = "Total: ¥" + (total?.decimalStr)!
 
         // Do any additional setup after loading the view.
     }

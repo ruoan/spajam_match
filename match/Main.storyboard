@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Waiting View Controller-->
+        <!--MATCH-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WaitingViewController" customModule="match" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="waitingView" id="BYZ-38-t0r" customClass="WaitingViewController" customModule="match" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -25,7 +25,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="HmK-he-x51" kind="show" identifier="resultView" id="q1X-lX-xer"/>
+                                    <action selector="goNext:" destination="BYZ-38-t0r" eventType="touchDown" id="Y5B-dz-r5d"/>
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="HXi-iZ-daP">
@@ -40,9 +40,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xRl-Rb-8IA"/>
+                    <navigationItem key="navigationItem" title="MATCH" id="zq7-MH-0MF"/>
                     <connections>
                         <outlet property="loading" destination="HXi-iZ-daP" id="hum-q6-wM5"/>
                     </connections>
@@ -51,10 +51,10 @@
             </objects>
             <point key="canvasLocation" x="1911.2" y="37.331334332833585"/>
         </scene>
-        <!--Result View Controller-->
+        <!--MATCH-->
         <scene sceneID="G9f-XT-DO9">
             <objects>
-                <viewController id="HmK-he-x51" customClass="ResultViewController" customModule="match" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="resultView" id="HmK-he-x51" customClass="ResultViewController" customModule="match" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L73-nS-x20"/>
                         <viewControllerLayoutGuide type="bottom" id="oSc-gx-zIF"/>
@@ -77,17 +77,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhp-qE-yus">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhp-qE-yus">
                                 <rect key="frame" x="156" y="550" width="62" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="精算内容"/>
                                 <connections>
-                                    <segue destination="MAY-33-QSA" kind="show" identifier="paymentView" id="6cd-Zv-0xM"/>
+                                    <action selector="goNext:" destination="HmK-he-x51" eventType="touchDown" id="Mdn-JG-Of8"/>
+                                    <segue destination="MAY-33-QSA" kind="showDetail" identifier="paymentView" id="ye5-tx-mdI"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nhp-qE-yus" firstAttribute="centerX" secondItem="dwH-m7-eOq" secondAttribute="centerX" id="hyl-io-9HR"/>
+                            <constraint firstItem="oSc-gx-zIF" firstAttribute="top" secondItem="nhp-qE-yus" secondAttribute="bottom" constant="87" id="pMr-W5-dmB"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="MATCH" id="fHB-Kb-FyC"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="resultLabel" destination="uxa-MF-qjh" id="8H4-OU-4As"/>
                     </connections>
@@ -96,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="2703.1999999999998" y="136.28185907046478"/>
         </scene>
-        <!--Payment View Controller-->
+        <!--MATCH-->
         <scene sceneID="ce2-D7-l5b">
             <objects>
-                <viewController id="MAY-33-QSA" customClass="PaymentViewController" customModule="match" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="paymentView" id="MAY-33-QSA" customClass="PaymentViewController" customModule="match" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Hb-LC-DLu"/>
                         <viewControllerLayoutGuide type="bottom" id="v4U-wM-YZQ"/>
@@ -107,17 +113,54 @@
                     <view key="view" contentMode="scaleToFill" id="oDT-pp-OdL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="¥6,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhr-Zd-ich">
+                                <rect key="frame" x="39" y="249" width="297" height="83"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total: ¥24,000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5s0-sj-Y4X">
+                                <rect key="frame" x="39" y="340" width="297" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3z-VB-9Pl">
+                                <rect key="frame" x="172" y="550" width="31" height="30"/>
+                                <state key="normal" title="払う"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="精算結果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxh-bo-KkV">
+                                <rect key="frame" x="70" y="220" width="235" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="v4U-wM-YZQ" firstAttribute="top" secondItem="X3z-VB-9Pl" secondAttribute="bottom" constant="87" id="PZQ-rc-hiB"/>
+                            <constraint firstItem="X3z-VB-9Pl" firstAttribute="centerX" secondItem="oDT-pp-OdL" secondAttribute="centerX" id="mTw-sJ-ESg"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="MATCH" id="VQF-aW-6a5"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="payLabel" destination="bhr-Zd-ich" id="zy4-vp-ryh"/>
+                        <outlet property="totalLabel" destination="5s0-sj-Y4X" id="1Jw-2T-Bfg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a0O-YN-myN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3551.1999999999998" y="135.38230884557723"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--title-->
         <scene sceneID="9WL-Rb-ViC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R2p-5U-ESp" sceneMemberID="viewController">
+                <navigationController title="title" automaticallyAdjustsScrollViewInsets="NO" id="R2p-5U-ESp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="i8i-kb-eaB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
