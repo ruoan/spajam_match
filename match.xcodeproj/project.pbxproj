@@ -20,6 +20,7 @@
 		FA5919DC1F11014C008A859B /* EnterRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5919DB1F11014C008A859B /* EnterRoomViewController.swift */; };
 		FA5919DE1F11055B008A859B /* PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5919DD1F11055B008A859B /* PHAsset.swift */; };
 		FA5919E01F1115AE008A859B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5919DF1F1115AE008A859B /* Main.storyboard */; };
+		FA5919E21F1118B7008A859B /* Sub.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5919E11F1118B7008A859B /* Sub.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		FA5919DB1F11014C008A859B /* EnterRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterRoomViewController.swift; sourceTree = "<group>"; };
 		FA5919DD1F11055B008A859B /* PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAsset.swift; sourceTree = "<group>"; };
 		FA5919DF1F1115AE008A859B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FA5919E11F1118B7008A859B /* Sub.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sub.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				7BE81C921F110BFB008D72DB /* WaitingViewController.swift */,
 				7BE81C941F110CFC008D72DB /* PaymentViewController.swift */,
 				FA5919DF1F1115AE008A859B /* Main.storyboard */,
+				FA5919E11F1118B7008A859B /* Sub.storyboard */,
 				7BE81C961F111D70008D72DB /* UIColorExtension.swift */,
 				7BE81C981F1132BD008D72DB /* Formatter.swift */,
 			);
@@ -144,6 +147,7 @@
 				TargetAttributes = {
 					FA030A341F10FE0100027CD4 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = EPSP7ABXMV;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -174,6 +178,7 @@
 				FA5919E01F1115AE008A859B /* Main.storyboard in Resources */,
 				FA030A431F10FE0200027CD4 /* LaunchScreen.storyboard in Resources */,
 				FA030A401F10FE0100027CD4 /* Assets.xcassets in Resources */,
+				FA5919E21F1118B7008A859B /* Sub.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,7 +363,7 @@
 			baseConfigurationReference = 9B1D4C7D8457CDA5BF16ADEE /* Pods-match.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = EPSP7ABXMV;
 				INFOPLIST_FILE = match/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = team.cobol.match111;
@@ -372,7 +377,7 @@
 			baseConfigurationReference = 60B8B1E7DF5575E56E9079F7 /* Pods-match.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = EPSP7ABXMV;
 				INFOPLIST_FILE = match/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = team.cobol.match111;
