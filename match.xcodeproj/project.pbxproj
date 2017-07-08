@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7BE81C911F110829008D72DB /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE81C901F110829008D72DB /* ResultViewController.swift */; };
+		7BE81C931F110BFB008D72DB /* WaitingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE81C921F110BFB008D72DB /* WaitingViewController.swift */; };
+		7BE81C951F110CFC008D72DB /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE81C941F110CFC008D72DB /* PaymentViewController.swift */; };
 		F50A6BAC56F1F8978852FF57 /* Pods_match.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630F16C9C09465F4A12848F7 /* Pods_match.framework */; };
 		FA030A391F10FE0100027CD4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA030A381F10FE0100027CD4 /* AppDelegate.swift */; };
 		FA030A3B1F10FE0100027CD4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA030A3A1F10FE0100027CD4 /* ViewController.swift */; };
-		FA030A3E1F10FE0100027CD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA030A3C1F10FE0100027CD4 /* Main.storyboard */; };
 		FA030A401F10FE0100027CD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA030A3F1F10FE0100027CD4 /* Assets.xcassets */; };
 		FA030A431F10FE0200027CD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA030A411F10FE0200027CD4 /* LaunchScreen.storyboard */; };
 		FA5919DC1F11014C008A859B /* EnterRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5919DB1F11014C008A859B /* EnterRoomViewController.swift */; };
@@ -20,11 +22,13 @@
 /* Begin PBXFileReference section */
 		60B8B1E7DF5575E56E9079F7 /* Pods-match.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-match.release.xcconfig"; path = "Pods/Target Support Files/Pods-match/Pods-match.release.xcconfig"; sourceTree = "<group>"; };
 		630F16C9C09465F4A12848F7 /* Pods_match.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_match.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BE81C901F110829008D72DB /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		7BE81C921F110BFB008D72DB /* WaitingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingViewController.swift; sourceTree = "<group>"; };
+		7BE81C941F110CFC008D72DB /* PaymentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		9B1D4C7D8457CDA5BF16ADEE /* Pods-match.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-match.debug.xcconfig"; path = "Pods/Target Support Files/Pods-match/Pods-match.debug.xcconfig"; sourceTree = "<group>"; };
 		FA030A351F10FE0100027CD4 /* match.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = match.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA030A381F10FE0100027CD4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA030A3A1F10FE0100027CD4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FA030A3D1F10FE0100027CD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA030A3F1F10FE0100027CD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA030A421F10FE0200027CD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA030A441F10FE0200027CD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,12 +88,14 @@
 			children = (
 				FA030A381F10FE0100027CD4 /* AppDelegate.swift */,
 				FA030A3A1F10FE0100027CD4 /* ViewController.swift */,
-				FA030A3C1F10FE0100027CD4 /* Main.storyboard */,
 				FA030A3F1F10FE0100027CD4 /* Assets.xcassets */,
 				FA030A411F10FE0200027CD4 /* LaunchScreen.storyboard */,
 				FA030A441F10FE0200027CD4 /* Info.plist */,
 				FA5919DB1F11014C008A859B /* EnterRoomViewController.swift */,
 				FA5919DD1F11055B008A859B /* PHAsset.swift */,
+				7BE81C901F110829008D72DB /* ResultViewController.swift */,
+				7BE81C921F110BFB008D72DB /* WaitingViewController.swift */,
+				7BE81C941F110CFC008D72DB /* PaymentViewController.swift */,
 			);
 			path = match;
 			sourceTree = "<group>";
@@ -158,7 +164,6 @@
 			files = (
 				FA030A431F10FE0200027CD4 /* LaunchScreen.storyboard in Resources */,
 				FA030A401F10FE0100027CD4 /* Assets.xcassets in Resources */,
-				FA030A3E1F10FE0100027CD4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,23 +223,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA5919DE1F11055B008A859B /* PHAsset.swift in Sources */,
+				7BE81C931F110BFB008D72DB /* WaitingViewController.swift in Sources */,
 				FA030A3B1F10FE0100027CD4 /* ViewController.swift in Sources */,
+				7BE81C951F110CFC008D72DB /* PaymentViewController.swift in Sources */,
 				FA030A391F10FE0100027CD4 /* AppDelegate.swift in Sources */,
 				FA5919DC1F11014C008A859B /* EnterRoomViewController.swift in Sources */,
+				7BE81C911F110829008D72DB /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FA030A3C1F10FE0100027CD4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA030A3D1F10FE0100027CD4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FA030A411F10FE0200027CD4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -287,7 +287,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -332,7 +332,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -346,9 +346,10 @@
 			baseConfigurationReference = 9B1D4C7D8457CDA5BF16ADEE /* Pods-match.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = match/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = team.cobol.match;
+				PRODUCT_BUNDLE_IDENTIFIER = team.cobol.match111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -359,9 +360,10 @@
 			baseConfigurationReference = 60B8B1E7DF5575E56E9079F7 /* Pods-match.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = match/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = team.cobol.match;
+				PRODUCT_BUNDLE_IDENTIFIER = team.cobol.match111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

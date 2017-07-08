@@ -20,6 +20,18 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // このメソッドで渡す
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "resultView" {
+            
+            let resultViewController:ResultViewController = segue.destination as! ResultViewController
+            
+            resultViewController.result = false
+        }
+        
+    }
 
     @IBAction func selectImage(_ sender: Any) {
     }
