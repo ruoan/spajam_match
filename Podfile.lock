@@ -49,6 +49,7 @@ PODS:
   - Charts (3.0.2):
     - Charts/Core (= 3.0.2)
   - Charts/Core (3.0.2)
+  - SkyFloatingLabelTextField (3.1.0)
   - SVProgressHUD (2.1.2)
   - SwiftyJSON (3.1.4)
 
@@ -77,6 +78,7 @@ DEPENDENCIES:
   - AWSSNS
   - AWSSQS
   - Charts
+  - SkyFloatingLabelTextField (~> 3.0)
   - SVProgressHUD (from `https://github.com/SVProgressHUD/SVProgressHUD.git`)
   - SwiftyJSON
 
@@ -120,9 +122,10 @@ SPEC CHECKSUMS:
   AWSSNS: 812baa3f5dd5e53da69c37fb8b451e52d0735821
   AWSSQS: bea4c7b93c011c7765a071b01ad74949d62c1d76
   Charts: 236d6ccdd0ce6feae151d89e829a7397381a21fd
+  SkyFloatingLabelTextField: 26a92ad407044dd5a7c3e4e348738ff0991514fe
   SVProgressHUD: d65371a8e4482380deddb9fe60e14e59ddb30eb3
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 9fad57dba75a750546e1e69e5764e39f6428d860
+PODFILE CHECKSUM: 876d3638f0278d364406cdfe4a02be617a8ad7df
 
 COCOAPODS: 1.2.1

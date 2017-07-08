@@ -12,17 +12,20 @@ import SwiftyJSON
 import AWSS3
 import Photos
 import SVProgressHUD
+import SkyFloatingLabelTextField
 
 
 class EnterRoomViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
 
 
-    @IBOutlet weak var txt_roomId: UITextField!
+    @IBOutlet weak var txt_roomId: SkyFloatingLabelTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EnterRoomViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         
         setupImageView()
         // Do any additional setup after loading the view.
@@ -33,7 +36,10 @@ class EnterRoomViewController: UIViewController, UIImagePickerControllerDelegate
         // Dispose of any resources that can be recreated.
     }
     
-
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
     /*
     // MARK: - Navigation
 
@@ -279,9 +285,16 @@ class EnterRoomViewController: UIViewController, UIImagePickerControllerDelegate
                 json = JSON(response.result.value)
                 print(json)
                 
+                
+                if (json["status"] == 200) {
+                  self.showNextView(roomId: self.txt_roomId.text, userId: json["body"]["member_id"].string!);
+                } else {
+                    self.displayErrorAlert(message:"認証に失敗しました。やり直してください。")
+                }
                 DispatchQueue.main.async() {
                     SVProgressHUD.dismiss()
                     
+                    //showNextView(roomId: json["room_id"], userId: json["member_id"]);
                     //__self.myActivityIndicator.stopAnimating()
                     //self.displayAlertMessage(message: "\(menu) は \(calorie) kcal でした。")
                 }
@@ -298,6 +311,17 @@ class EnterRoomViewController: UIViewController, UIImagePickerControllerDelegate
         alertController.addAction(OKAction)
         
         self.present(alertController, animated: true, completion:nil)
+    }
+    
+    func showNextView(roomId:String!, userId:String!){
+        if let targetView = self.storyboard!.instantiateViewController(withIdentifier: "MakeChoiceViewController") as? MakeChoiceViewController {
+            print("MakeChoiceViewController")
+            targetView.roomId = roomId
+            targetView.userId = userId
+            
+            self.navigationController?.pushViewController(targetView, animated: true)
+        }
+        
     }
 
 }

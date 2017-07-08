@@ -33,7 +33,7 @@ pod 'AWSAutoScaling'
     pod 'AWSSNS'
     pod 'AWSSQS'
     pod 'SVProgressHUD', :git => 'https://github.com/SVProgressHUD/SVProgressHUD.git'
-
+pod 'SkyFloatingLabelTextField', '~> 3.0'
 
 post_install do |installer|
 	installer.pods_project.targets.each do |target|
