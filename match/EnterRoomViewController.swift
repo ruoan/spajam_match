@@ -15,12 +15,16 @@ import SVProgressHUD
 
 
 class EnterRoomViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+
 
     @IBOutlet weak var txt_roomId: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        setupImageView()
         // Do any additional setup after loading the view.
     }
 
@@ -40,6 +44,20 @@ class EnterRoomViewController: UIViewController, UIImagePickerControllerDelegate
     }
     */
 
+    
+    func setupImageView()
+    {
+        myImageView = UIImageView()
+        
+        let xPostion:CGFloat = 50
+        let yPostion:CGFloat = 200
+        let buttonWidth:CGFloat = 200
+        let buttonHeight:CGFloat = 200
+        
+        myImageView.frame = CGRect(x: xPostion, y: yPostion, width: buttonWidth, height: buttonHeight)
+        
+        //self.view.addSubview(myImageView)
+    }
     
     @IBAction func selectImage(_ sender: Any) {
         let alertController = UIAlertController(title: "画像を選択", message: nil, preferredStyle: .actionSheet)
@@ -83,7 +101,10 @@ class EnterRoomViewController: UIViewController, UIImagePickerControllerDelegate
         }
     }
     
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+
+        print("asdjhcwne;nce;cnad;a;;k")
         selectedImageUrl = nil;
         localIdentifier = nil;
         
@@ -162,23 +183,22 @@ class EnterRoomViewController: UIViewController, UIImagePickerControllerDelegate
         
         SVProgressHUD.show()
         
-        
+
         // Configure AWS Cognito Credentials
-        let myIdentityPoolId = "ap-northeast-1:544001e3-88dd-4502-8b07-221141f313c4"
+        let myIdentityPoolId = "us-west-2:fbf2f8c0-5b66-4a1b-9cd5-4b2f163a439f"
         
-        let credentialsProvider:AWSCognitoCredentialsProvider = AWSCognitoCredentialsProvider(regionType:AWSRegionType.APNortheast1, identityPoolId: myIdentityPoolId)
+        let credentialsProvider:AWSCognitoCredentialsProvider = AWSCognitoCredentialsProvider(regionType:AWSRegionType.USWest2, identityPoolId: myIdentityPoolId)
         
         
         
-        let configuration = AWSServiceConfiguration(region:AWSRegionType.APNortheast1, credentialsProvider:credentialsProvider)
+        let configuration = AWSServiceConfiguration(region:AWSRegionType.USWest2, credentialsProvider:credentialsProvider)
         
         
         
         AWSServiceManager.default().defaultServiceConfiguration = configuration
         
-        
         // Set up AWS Transfer Manager Request
-        let S3BucketName = "face.match.spajam"
+        let S3BucketName = "face.match.spajam2017"
         
         let remoteName = localFileName!
         
@@ -203,17 +223,16 @@ class EnterRoomViewController: UIViewController, UIImagePickerControllerDelegate
             
             if task.result != nil {
                 
-                let s3URL = NSURL(string: "https://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
+                let s3URL = NSURL(string: "https://s3-us-west-2.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)")!
                 print("Uploaded to:\n\(s3URL)")
                 // Remove locally stored file
                 self.removeImageWithUrl(fileName: uploadRequest.key!)
                 
                 
-                if let roomId = self.txt_roomId.text {
-                  self.loginWithFaceRecognition(roomId: roomId, url: "https://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest.key!)");
+                if self.txt_roomId.text != nil {
+                  self.loginWithFaceRecognition(roomId: "spajam2017", url: "\(uploadRequest.key!)");
                 } else {
                     self.displayErrorAlert(message:"ルーム No. を入力してください。")
-
                 }
                 
             } else {
@@ -252,10 +271,10 @@ class EnterRoomViewController: UIViewController, UIImagePickerControllerDelegate
         var json:JSON = JSON("")
         let URL = "https://y40dae48w6.execute-api.ap-northeast-1.amazonaws.com/dev/login"
         let parameters = [
-            "roomId": roomId,
+            "room_id": roomId,
             "url": url
             ] as [String : Any]
-        Alamofire.request(URL, method: .get, parameters: parameters)
+        Alamofire.request(URL, method: .post, parameters: parameters)
             .responseJSON { response in
                 json = JSON(response.result.value)
                 print(json)
