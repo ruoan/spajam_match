@@ -17,6 +17,7 @@
 		FA030A431F10FE0200027CD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA030A411F10FE0200027CD4 /* LaunchScreen.storyboard */; };
 		FA5919DC1F11014C008A859B /* EnterRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5919DB1F11014C008A859B /* EnterRoomViewController.swift */; };
 		FA5919DE1F11055B008A859B /* PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5919DD1F11055B008A859B /* PHAsset.swift */; };
+		FA5919E01F1115AE008A859B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5919DF1F1115AE008A859B /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		FA030A441F10FE0200027CD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA5919DB1F11014C008A859B /* EnterRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterRoomViewController.swift; sourceTree = "<group>"; };
 		FA5919DD1F11055B008A859B /* PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAsset.swift; sourceTree = "<group>"; };
+		FA5919DF1F1115AE008A859B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				7BE81C901F110829008D72DB /* ResultViewController.swift */,
 				7BE81C921F110BFB008D72DB /* WaitingViewController.swift */,
 				7BE81C941F110CFC008D72DB /* PaymentViewController.swift */,
+				FA5919DF1F1115AE008A859B /* Main.storyboard */,
 			);
 			path = match;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5919E01F1115AE008A859B /* Main.storyboard in Resources */,
 				FA030A431F10FE0200027CD4 /* LaunchScreen.storyboard in Resources */,
 				FA030A401F10FE0100027CD4 /* Assets.xcassets in Resources */,
 			);
