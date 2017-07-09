@@ -80,7 +80,7 @@ class MakeChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
 
         let member = members[indexPath.row]
         
-        if let url = NSURL(string: "https://weddingxsong.com/wp-content/uploads/2016/02/38011fc26c832eb6a3ca790c60bd362f.png") as URL? {
+        if let url = NSURL(string: member["image_url"]!) as URL? {
             
             do {
               let imageData :NSData = try NSData(contentsOf: url)
@@ -93,12 +93,16 @@ class MakeChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
             }
         }
         
-        let lbl_lastname = cell.viewWithTag(2) as! UILabel
-        lbl_lastname.text = member["gender"]
-        
         let lbl_firstname = cell.viewWithTag(3) as! UILabel
         lbl_firstname.text = member["name"]
-
+        
+        let img_cover = cell.viewWithTag(6) as! UIImageView
+        if (member["gender"] == "woman") {
+          img_cover.image = UIImage(named: "Cover_Pink")
+        } else {
+          img_cover.image = UIImage(named: "Cover_Blue")
+        }
+        
         return cell
     }
     
@@ -108,25 +112,41 @@ class MakeChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let img_medal = cell.viewWithTag(4) as! UIImageView
         let lbl_medal = cell.viewWithTag(5) as! UILabel
+
         
         if let ip = self.order.last {
+            
+            // 2位以降を選ぶ
             if (ip.row == indexPath.row) {
+                //最後尾のやつの選択を解除
+                
                 self.order.popLast()
+                
                 img_medal.isHidden = true
                 lbl_medal.isHidden = true
             } else {
-                self.order.append(indexPath)
-                lbl_medal.text = String(self.order.count + 1)
-                
-                if (self.order.count == 1) {
-                   img_medal.image = UIImage(named: "Silver")
-                } else {
-                   img_medal.image = UIImage(named: "Bronze")
+                if self.order.filter({ (filterIP) -> Bool in
+                    return filterIP.row == indexPath.row
+                }).count == 0 {
+                    self.order.append(indexPath)
+                    lbl_medal.text = String(self.order.count)
+                    
+                    if (self.order.count == 2) {
+                        img_medal.image = UIImage(named: "Silver")
+                    } else {
+                        img_medal.image = UIImage(named: "Bronze")
+                    }
+                    img_medal.isHidden = false
+                    lbl_medal.isHidden = false
                 }
-                img_medal.isHidden = false
-                lbl_medal.isHidden = false
+                
+                
+                
+                
             }
         } else {
+            
+            // 一番最初の1位を選ぶ
            self.order.append(indexPath)
             lbl_medal.text = "1"
             img_medal.image = UIImage(named: "Gold")
@@ -185,20 +205,25 @@ class MakeChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
     func postChoices(){
         SVProgressHUD.show()
         
-        var memberRanking: Array<String> = []
-        for indexPath in order {
-          memberRanking.append(members[indexPath.row]["member_id"]!)
+        var memberRanking: [String] = []
+        for (index, indexPath) in order.enumerated() {
+            //memberRanking[String(index)] = self.members[indexPath.row]["member_id"]!
+            memberRanking.append(self.members[indexPath.row]["member_id"]!)
         }
-        print(memberRanking)
+        
         
         var json:JSON = JSON("")
-        let URL = "https://y40dae48w6.execute-api.ap-northeast-1.amazonaws.com/dev/choices"
-        let parameters = [
+        let url = "https://y40dae48w6.execute-api.ap-northeast-1.amazonaws.com/dev/choices"
+        let params = [
             "room_id": self.roomId,
             "member_id": self.userId,
             "choices": memberRanking,
             ] as [String : Any]
-        Alamofire.request(URL, method: .post, parameters: parameters)
+
+
+        
+        
+        Alamofire.request(url, method: .post, parameters: params, encoding: JSONEncoding.default)
             .responseJSON { response in
                 json = JSON(response.result.value)
                 print(json)
@@ -215,6 +240,8 @@ class MakeChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
                 }
                 
         }
+
+
     }
     
     
