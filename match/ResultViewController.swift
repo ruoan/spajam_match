@@ -11,7 +11,13 @@ import UIKit
 class ResultViewController: UIViewController {
 
     @IBOutlet weak var resultLabel: UILabel!
+    
+    @IBOutlet weak var faceImage: UIImageView!
+    
+    
     var result: Bool?
+    
+    var match: String = "https://s3-us-west-2.amazonaws.com/face.match.spajam2017/member001_regist.jpg"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +26,23 @@ class ResultViewController: UIViewController {
         
         if(self.result)!{
             self.resultLabel.text = "成功!"
+            
+            let url = NSURL(string: match)
+            var imageData = NSData(contentsOf: url as! URL)
+            var img = UIImage(data:imageData as! Data);
+            
+            self.faceImage.image = img
+            
         } else {
             self.resultLabel.text = "残念;;"
+            
+            self.faceImage.image = #imageLiteral(resourceName: "cover_img_03")
+            
         }
+        
+        
+        self.faceImage.layer.cornerRadius = self.faceImage.frame.size.width * CGFloat(0.5)
+        self.faceImage.clipsToBounds = true
 
         // Do any additional setup after loading the view.
     }
