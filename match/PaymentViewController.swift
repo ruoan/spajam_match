@@ -63,22 +63,7 @@ class PaymentViewController: UIViewController {
     }
     
     @IBAction func makePayment(_ sender: Any) {
-        //deleteChoices()
-        
-        self.navigationController?.popToRootViewController(animated: true)
-        
-        /*
-        let storyboard = UIStoryboard(name: "Sub", bundle: nil)
-        
-        if let targetView = storyboard.instantiateViewController(withIdentifier: "MakeChoiceViewController") as? MakeChoiceViewController {
-            print(targetView)
-            self.navigationController?.popToViewController(targetView, animated: true)
-        }
-        */
-        
-        
-        
-        
+        deleteChoices()
     }
 
     /*
@@ -106,8 +91,7 @@ class PaymentViewController: UIViewController {
                 
                 
                 if (json["status"] == 200) {
-                    
-                    
+                    self.navigationController?.popToRootViewController(animated: true)
                 } else {
                     self.displayErrorAlert(message:"投票データの初期化に失敗しました。")
                 }

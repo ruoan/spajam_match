@@ -46,8 +46,6 @@ class MakeChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     override func viewDidAppear(_ animated: Bool) {
-        
-        
         SVProgressHUD.show()
         getMembers()
         
