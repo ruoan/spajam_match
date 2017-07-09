@@ -29,6 +29,10 @@ class MakeChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
         // Do any additional setup after loading the view.
         self.order = []
         
+        let image:UIImage = #imageLiteral(resourceName: "navbar")
+        self.navigationItem.titleView = UIImageView(image:image)
+        self.navigationItem.hidesBackButton = true
+
     }
     
     @IBAction func postChoicePressed(_ sender: Any) {

@@ -25,6 +25,7 @@ class WaitingViewController: UIViewController {
         
         let image:UIImage = #imageLiteral(resourceName: "navbar")
         self.navigationItem.titleView = UIImageView(image:image)
+        self.navigationItem.hidesBackButton = true
         
         self.loading.startAnimating()
         

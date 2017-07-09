@@ -27,6 +27,10 @@ class EnterRoomViewController: UIViewController, UIImagePickerControllerDelegate
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EnterRoomViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
         
+        let image:UIImage = #imageLiteral(resourceName: "navbar")
+        self.navigationItem.titleView = UIImageView(image:image)
+        
+        
         setupImageView()
         // Do any additional setup after loading the view.
     }

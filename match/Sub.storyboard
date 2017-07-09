@@ -102,7 +102,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ETa-Za-jjn"/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="txt_roomId" destination="DkG-3R-Xlo" id="3fo-Sm-mC5"/>
                     </connections>
@@ -218,9 +217,8 @@
         <!--Navigation Controller-->
         <scene sceneID="dYd-zl-azg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="VwB-Mh-973" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VwB-Mh-973" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ahd-4z-qyw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
