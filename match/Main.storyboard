@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -68,28 +69,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="マッチング結果は..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdb-wD-62f">
-                                <rect key="frame" x="27" y="104" width="153" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OMh-WP-65f">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="成立" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxa-MF-qjh">
+                                <rect key="frame" x="110" y="163" width="154" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="60"/>
+                                <color key="textColor" red="1" green="0.94128109183441389" blue="0.00037984644721733574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.7493725712435233" green="0.70537023205086569" blue="0.00028464650882897212" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="成功！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxa-MF-qjh">
-                                <rect key="frame" x="123" y="163" width="128" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhp-qE-yus" customClass="CustomCustom" customModule="match" customModuleProvider="target">
-                                <rect key="frame" x="86" y="540" width="203" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhp-qE-yus" customClass="CustomCustom" customModule="match" customModuleProvider="target">
+                                <rect key="frame" x="87.5" y="510" width="200" height="70"/>
                                 <color key="backgroundColor" red="0.0078431372550000003" green="0.72549019609999998" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="203" id="ifs-SQ-iAC"/>
+                                    <constraint firstAttribute="height" constant="70" id="X5P-J4-XAo"/>
+                                    <constraint firstAttribute="width" constant="200" id="ifs-SQ-iAC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="精算内容">
+                                <state key="normal" title="精算金額の確認へ">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="0.0078431372549019607" green="0.72549019607843135" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -110,10 +110,21 @@
                                     <constraint firstAttribute="height" constant="180" id="Zwc-ED-WN1"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="マッチング" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdb-wD-62f">
+                                <rect key="frame" x="121" y="134" width="132" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="25"/>
+                                <color key="textColor" red="0.98338325777202074" green="0.92564006656733056" blue="0.00037353463671771156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mR6-l7-FUM" firstAttribute="top" secondItem="dwH-m7-eOq" secondAttribute="top" constant="254" id="1Df-qB-Afg"/>
+                            <constraint firstAttribute="trailing" secondItem="OMh-WP-65f" secondAttribute="trailing" id="7fw-PY-J8F"/>
+                            <constraint firstItem="oSc-gx-zIF" firstAttribute="top" secondItem="OMh-WP-65f" secondAttribute="bottom" id="HcK-qD-cGP"/>
+                            <constraint firstItem="OMh-WP-65f" firstAttribute="leading" secondItem="dwH-m7-eOq" secondAttribute="leading" id="Nei-vF-yrw"/>
+                            <constraint firstItem="OMh-WP-65f" firstAttribute="top" secondItem="L73-nS-x20" secondAttribute="bottom" id="WMf-lt-USB"/>
                             <constraint firstItem="nhp-qE-yus" firstAttribute="centerX" secondItem="dwH-m7-eOq" secondAttribute="centerX" id="hyl-io-9HR"/>
                             <constraint firstItem="oSc-gx-zIF" firstAttribute="top" secondItem="nhp-qE-yus" secondAttribute="bottom" constant="87" id="pMr-W5-dmB"/>
                             <constraint firstItem="mR6-l7-FUM" firstAttribute="centerX" secondItem="dwH-m7-eOq" secondAttribute="centerX" id="ytm-R2-6xP"/>
@@ -123,6 +134,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="faceImage" destination="mR6-l7-FUM" id="Kmo-ty-pba"/>
+                        <outlet property="imageBlur" destination="OMh-WP-65f" id="mg5-cb-S5B"/>
                         <outlet property="resultLabel" destination="uxa-MF-qjh" id="8H4-OU-4As"/>
                     </connections>
                 </viewController>
@@ -160,18 +172,20 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="精算結果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxh-bo-KkV">
-                                <rect key="frame" x="70" y="220" width="235" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今回の精算金額" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxh-bo-KkV">
+                                <rect key="frame" x="24" y="214" width="327" height="38"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="37"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.52321742957746475" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3z-VB-9Pl" customClass="CustomCustom" customModule="match" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="544" width="200" height="36"/>
+                                <rect key="frame" x="87.5" y="510" width="200" height="70"/>
                                 <color key="backgroundColor" red="0.0078431372550000003" green="0.72549019609999998" blue="0.8980392157" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Dbm-JG-uup"/>
+                                    <constraint firstAttribute="height" constant="70" id="QuN-IX-fpi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="払う">
@@ -191,11 +205,14 @@
                         <color key="backgroundColor" red="0.98039215690000003" green="0.98039215690000003" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="v4U-wM-YZQ" firstAttribute="top" secondItem="40x-7c-QiT" secondAttribute="bottom" id="1AQ-gZ-UeQ"/>
+                            <constraint firstItem="fxh-bo-KkV" firstAttribute="leading" secondItem="oDT-pp-OdL" secondAttribute="leadingMargin" constant="8" id="76U-Ya-sjO"/>
                             <constraint firstItem="40x-7c-QiT" firstAttribute="top" secondItem="8Hb-LC-DLu" secondAttribute="bottom" id="EcK-H5-eVq"/>
                             <constraint firstItem="v4U-wM-YZQ" firstAttribute="top" secondItem="X3z-VB-9Pl" secondAttribute="bottom" constant="87" id="PZQ-rc-hiB"/>
                             <constraint firstItem="40x-7c-QiT" firstAttribute="leading" secondItem="oDT-pp-OdL" secondAttribute="leading" id="h2V-sS-cBj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fxh-bo-KkV" secondAttribute="trailing" constant="8" id="hVp-Cm-NKa"/>
                             <constraint firstItem="X3z-VB-9Pl" firstAttribute="centerX" secondItem="oDT-pp-OdL" secondAttribute="centerX" id="mTw-sJ-ESg"/>
                             <constraint firstAttribute="trailing" secondItem="40x-7c-QiT" secondAttribute="trailing" id="mnX-p3-eFr"/>
+                            <constraint firstItem="fxh-bo-KkV" firstAttribute="top" secondItem="8Hb-LC-DLu" secondAttribute="bottom" constant="150" id="u61-Dj-Zl0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="MATCH" id="VQF-aW-6a5"/>

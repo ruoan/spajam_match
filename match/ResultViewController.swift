@@ -14,12 +14,15 @@ class ResultViewController: UIViewController {
     
     @IBOutlet weak var faceImage: UIImageView!
     
+    @IBOutlet weak var imageBlur: UIImageView!
     
     var result: Bool?
     var roomid:String?
     var memberid:String?
+    var image_url:String!
+    var name:String!
     
-    var match: String = "https://s3-us-west-2.amazonaws.com/face.match.spajam2017/member001_regist.jpg"
+    //var match: String = "https://s3-us-west-2.amazonaws.com/face.match.spajam2017/member001_regist.jpg"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +31,43 @@ class ResultViewController: UIViewController {
         self.navigationItem.titleView = UIImageView(image:image)
         self.navigationItem.hidesBackButton = true
         
-        if(self.result)!{
-            self.resultLabel.text = "成功!"
+        if self.result! {
+            self.resultLabel.text = "成立"
             
-            let url = NSURL(string: match)
-            var imageData = NSData(contentsOf: url as! URL)
-            var img = UIImage(data:imageData as! Data);
+            if let url = NSURL(string: self.image_url) as URL? {
+                
+                do {
+                    let imageData :NSData = try NSData(contentsOf: url)
+                    let img = UIImage(data:imageData as Data);
+                    self.faceImage.image = img
+                    
+                    
+                    
+                    let currentFilter = CIFilter(name: "CIGaussianBlur")
+                    let beginImage = CIImage(image: img!)
+                    currentFilter!.setValue(beginImage, forKey: kCIInputImageKey)
+                    currentFilter!.setValue(10, forKey: kCIInputRadiusKey)
+                    
+                    let cropFilter = CIFilter(name: "CICrop")
+                    cropFilter!.setValue(currentFilter!.outputImage, forKey: kCIInputImageKey)
+                    cropFilter!.setValue(CIVector(cgRect: beginImage!.extent), forKey: "inputRectangle")
+                    
+                    let output = cropFilter!.outputImage
+                    let cgimg = context.createCGImage(output!, from: output!.extent)
+                    let processedImage = UIImage(cgImage: cgimg!)
+
+                    imageBlur.image = processedImage
+                    
+                } catch {
+                    self.displayErrorAlert(message:"メンバーの画像の取得に失敗しました。")
+                }
+            }
+        
             
-            self.faceImage.image = img
+            
             
         } else {
-            self.resultLabel.text = "残念;;"
+            self.resultLabel.text = "不成立"
             
             self.faceImage.image = #imageLiteral(resourceName: "cover_img_03")
             
@@ -51,6 +80,11 @@ class ResultViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    
+    var context = CIContext(options: nil)
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -80,5 +114,14 @@ class ResultViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func displayErrorAlert(message:String)
+    {
+        let alertController = UIAlertController(title: "エラー！", message: message, preferredStyle: .alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.destructive, handler: nil)
+        
+        alertController.addAction(OKAction)
+        
+        self.present(alertController, animated: true, completion:nil)
+    }
 }

@@ -59,21 +59,30 @@ class WaitingViewController: UIViewController {
                 json = JSON(response.result.value)
                 print(json)
                 
-                if json["body"]["text"] == "finished"{
-                    
-                    var result = true
-                    if json["body"]["text"] == "unmatched" {
-                        result = false
+                if (json["status"] == 200) {
+                    if json["body"]["text"] == "finished"{
+                        
+                        var result = true
+                        if json["body"]["text"] == "unmatched" {
+                            result = false
+                        }
+                        //self.goNextFunc(result: result)
+                        self.showNextView(result: result,
+                                          memberId: json["body"]["result"]["member_id"].string!,
+                                          image_url: json["body"]["result"]["image_url"].string!,
+                                          name: json["body"]["result"]["name"].string!)
+                        
+                    } else {
+                        self.getMatchings()
                     }
-                    self.goNextFunc(result: result)
                 } else {
-                    self.getMatchings()
+                    self.displayErrorAlert(message:"マッチングの取得に失敗しました。")
                 }
                 
         }
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -116,6 +125,19 @@ class WaitingViewController: UIViewController {
         
         self.present(alertController, animated: true, completion:nil)
         
+    }
+    
+    func showNextView(result:Bool, memberId: String, image_url:String, name:String){
+        
+        let next:ResultViewController = storyboard!.instantiateViewController(withIdentifier: "resultView") as! ResultViewController
+        
+        next.result = result
+        next.memberid = memberId
+        next.roomid = roomid
+        next.image_url = image_url
+        next.name = name
+        
+        self.navigationController?.pushViewController(next, animated:true)
     }
 
 }
