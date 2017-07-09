@@ -23,6 +23,7 @@
 		FA5919DE1F11055B008A859B /* PHAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5919DD1F11055B008A859B /* PHAsset.swift */; };
 		FA5919E01F1115AE008A859B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5919DF1F1115AE008A859B /* Main.storyboard */; };
 		FA5919E21F1118B7008A859B /* Sub.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA5919E11F1118B7008A859B /* Sub.storyboard */; };
+		FA5919E41F113670008A859B /* MakeChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5919E31F113670008A859B /* MakeChoiceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		FA5919DD1F11055B008A859B /* PHAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PHAsset.swift; sourceTree = "<group>"; };
 		FA5919DF1F1115AE008A859B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FA5919E11F1118B7008A859B /* Sub.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Sub.storyboard; sourceTree = "<group>"; };
+		FA5919E31F113670008A859B /* MakeChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakeChoiceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				7BE81C941F110CFC008D72DB /* PaymentViewController.swift */,
 				FA5919DF1F1115AE008A859B /* Main.storyboard */,
 				FA5919E11F1118B7008A859B /* Sub.storyboard */,
+				FA5919E31F113670008A859B /* MakeChoiceViewController.swift */,
 				7BE81C961F111D70008D72DB /* UIColorExtension.swift */,
 				7BE81C981F1132BD008D72DB /* Formatter.swift */,
 				7BE81C9A1F11446C008D72DB /* CustomButton.swift */,
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA5919DE1F11055B008A859B /* PHAsset.swift in Sources */,
+				FA5919E41F113670008A859B /* MakeChoiceViewController.swift in Sources */,
 				7B3BC63A1F11A37500C91BD2 /* UIImage.swift in Sources */,
 				7BE81C931F110BFB008D72DB /* WaitingViewController.swift in Sources */,
 				FA030A3B1F10FE0100027CD4 /* ViewController.swift in Sources */,
