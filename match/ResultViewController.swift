@@ -16,13 +16,17 @@ class ResultViewController: UIViewController {
     
     
     var result: Bool?
+    var roomid:String?
+    var memberid:String?
     
     var match: String = "https://s3-us-west-2.amazonaws.com/face.match.spajam2017/member001_regist.jpg"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title="MATCH"
+        let image:UIImage = #imageLiteral(resourceName: "navbar")
+        self.navigationItem.titleView = UIImageView(image:image)
+        
         
         if(self.result)!{
             self.resultLabel.text = "成功!"
@@ -56,8 +60,9 @@ class ResultViewController: UIViewController {
         let next:PaymentViewController = storyboard!.instantiateViewController(withIdentifier: "paymentView") as! PaymentViewController
         
         next.result = self.result
-        next.pay = 7000
-        next.total = 21000
+        next.roomid = self.roomid
+        next.memberid = self.memberid
+        
         
         let navi = UINavigationController(rootViewController: next)
         

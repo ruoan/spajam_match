@@ -17,14 +17,14 @@ class WaitingViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
     
-    var roomid:String?
-    var memberid:String?
-    var match:String?
+    var roomid:String = "spajam2017_2"
+    var memberid:String = "member001"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "MATCH"
+        let image:UIImage = #imageLiteral(resourceName: "navbar")
+        self.navigationItem.titleView = UIImageView(image:image)
         
         self.loading.startAnimating()
         
@@ -51,18 +51,23 @@ class WaitingViewController: UIViewController {
         var json:JSON = JSON("")
         let URL = "https://y40dae48w6.execute-api.ap-northeast-1.amazonaws.com/dev/matchings"
         let parameters = [
-            "room_id": "spajam2017_2",
-            "member_id": "member001"] as [String : Any]
+            "room_id": roomid,
+            "member_id": memberid] as [String : Any]
         Alamofire.request(URL, method: .get, parameters: parameters)
             .responseJSON { response in
                 json = JSON(response.result.value)
-                print(json)
+                //print(json)
                 
-                //if; json["body"]["text"] == "finished"{
-                    self.goNextFunc()
-                //} else {
-                //    self.getMatchings()
-                //}
+                if json["body"]["text"] == "finished"{
+                    
+                    var result = true
+                    if json["body"]["text"] == "unmatched" {
+                        result = false
+                    }
+                    self.goNextFunc(result: result)
+                } else {
+                    self.getMatchings()
+                }
                 
         }
         
@@ -75,12 +80,14 @@ class WaitingViewController: UIViewController {
     
 
     @IBAction func goNext(_ sender: Any) {
-        self.goNextFunc()
+        self.goNextFunc(result:true)
     }
-    func goNextFunc(){
+    func goNextFunc(result: Bool){
         let next:ResultViewController = storyboard!.instantiateViewController(withIdentifier: "resultView") as! ResultViewController
         
-        next.result = false
+        next.result = result
+        next.memberid = memberid
+        next.roomid = roomid
         
         let navi = UINavigationController(rootViewController: next)
         
