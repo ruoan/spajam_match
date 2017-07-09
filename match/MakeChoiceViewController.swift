@@ -19,7 +19,7 @@ class MakeChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
     var roomId: String!
     var userId: String!
     var members: Array<Dictionary<String, String>> = []
-    var selected: IndexPath?
+    var order: Array<IndexPath>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,10 +27,18 @@ class MakeChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableview.delegate = self
         self.tableview.dataSource = self
         // Do any additional setup after loading the view.
-         self.selected = nil
+        self.order = []
         
     }
     
+    @IBAction func postChoicePressed(_ sender: Any) {
+        if (self.members.count == self.order.count) {
+          postChoices()
+        } else {
+          self.displayErrorAlert(message:"すべてのメンバーに順位をつけてください。")
+        }
+        
+    }
     override func viewDidAppear(_ animated: Bool) {
         
         
@@ -96,22 +104,37 @@ class MakeChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)!
-        let img_medal = cell.viewWithTag(4) as! UIImageView
         
-        if selected == nil {
-            self.selected = indexPath
-            img_medal.isHidden = false
-        } else if selected!.row == indexPath.row {
-            self.selected = nil
-            img_medal.isHidden = true
+        
+        let img_medal = cell.viewWithTag(4) as! UIImageView
+        let lbl_medal = cell.viewWithTag(5) as! UILabel
+        
+        if let ip = self.order.last {
+            if (ip.row == indexPath.row) {
+                self.order.popLast()
+                img_medal.isHidden = true
+                lbl_medal.isHidden = true
+            } else {
+                self.order.append(indexPath)
+                lbl_medal.text = String(self.order.count + 1)
+                
+                if (self.order.count == 1) {
+                   img_medal.image = UIImage(named: "Silver")
+                } else {
+                   img_medal.image = UIImage(named: "Bronze")
+                }
+                img_medal.isHidden = false
+                lbl_medal.isHidden = false
+            }
         } else {
-            let curcell = tableView.cellForRow(at: self.selected!)
-            let cur_img_medal = curcell?.viewWithTag(4) as! UIImageView
-            cur_img_medal.isHidden = true
-            
-            self.selected = indexPath
+           self.order.append(indexPath)
+            lbl_medal.text = "1"
+            img_medal.image = UIImage(named: "Gold")
             img_medal.isHidden = false
+            lbl_medal.isHidden = false
         }
+        
+        
     }
     
     
@@ -157,6 +180,44 @@ class MakeChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
                 
         }
     }
+    
+    
+    func postChoices(){
+        SVProgressHUD.show()
+        
+        var memberRanking: Array<String> = []
+        for indexPath in order {
+          memberRanking.append(members[indexPath.row]["member_id"]!)
+        }
+        print(memberRanking)
+        
+        var json:JSON = JSON("")
+        let URL = "https://y40dae48w6.execute-api.ap-northeast-1.amazonaws.com/dev/choices"
+        let parameters = [
+            "room_id": self.roomId,
+            "member_id": self.userId,
+            "choices": memberRanking,
+            ] as [String : Any]
+        Alamofire.request(URL, method: .post, parameters: parameters)
+            .responseJSON { response in
+                json = JSON(response.result.value)
+                print(json)
+                
+                
+                if (json["status"] == 200) {
+
+                } else {
+                    self.displayErrorAlert(message:"投票に失敗しました。")
+                }
+                DispatchQueue.main.async() {
+                    SVProgressHUD.dismiss()
+                    
+                }
+                
+        }
+    }
+    
+    
     
     func displayErrorAlert(message:String)
     {
