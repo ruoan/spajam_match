@@ -43,6 +43,8 @@ class MakeChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
     }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         
         
@@ -106,6 +108,11 @@ class MakeChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
         } else {
           img_cover.image = UIImage(named: "Cover_Blue")
         }
+        
+        let img_medal = cell.viewWithTag(4) as! UIImageView
+        let lbl_medal = cell.viewWithTag(5) as! UILabel
+        img_medal.isHidden = true
+        lbl_medal.isHidden = true
         
         return cell
     }
@@ -271,9 +278,17 @@ class MakeChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
-        if let targetView = storyboard.instantiateInitialViewController() {
+        if let targetView = storyboard.instantiateInitialViewController() as? WaitingViewController {
+
+            targetView.roomid = roomId
+            targetView.memberid = userId
+
            self.navigationController?.pushViewController(targetView, animated: true)
         }
         
+    }
+    
+    func resetView(){
+       getMembers()
     }
 }

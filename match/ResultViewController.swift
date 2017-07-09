@@ -26,7 +26,7 @@ class ResultViewController: UIViewController {
         
         let image:UIImage = #imageLiteral(resourceName: "navbar")
         self.navigationItem.titleView = UIImageView(image:image)
-        
+        self.navigationItem.hidesBackButton = true
         
         if(self.result)!{
             self.resultLabel.text = "成功!"
@@ -64,9 +64,11 @@ class ResultViewController: UIViewController {
         next.memberid = self.memberid
         
         
-        let navi = UINavigationController(rootViewController: next)
+        //let navi = UINavigationController(rootViewController: next)
         
-        self.present(navi,animated: true, completion: nil)
+        //self.present(navi,animated: true, completion: nil)
+        
+        self.navigationController?.pushViewController(next, animated: true)
     }
 
     /*

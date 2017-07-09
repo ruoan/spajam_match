@@ -11,15 +11,15 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+
 class WaitingViewController: UIViewController {
 
     @IBOutlet weak var loading: UIActivityIndicatorView!
 
     @IBOutlet weak var imageView: UIImageView!
     
-    var roomid:String = "spajam2017_2"
-    var memberid:String = "member001"
-    
+    var roomid:String!
+    var memberid:String!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -57,7 +57,7 @@ class WaitingViewController: UIViewController {
         Alamofire.request(URL, method: .get, parameters: parameters)
             .responseJSON { response in
                 json = JSON(response.result.value)
-                //print(json)
+                print(json)
                 
                 if json["body"]["text"] == "finished"{
                     
@@ -90,9 +90,11 @@ class WaitingViewController: UIViewController {
         next.memberid = memberid
         next.roomid = roomid
         
-        let navi = UINavigationController(rootViewController: next)
+        //let navi = UINavigationController(rootViewController: next)
         
-        self.present(navi,animated: true, completion: nil)
+        //self.present(navi,animated: true, completion: nil)
+        
+        self.navigationController?.pushViewController(next, animated: true)
     }
 
     /*
@@ -104,5 +106,16 @@ class WaitingViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func displayErrorAlert(message:String)
+    {
+        let alertController = UIAlertController(title: "エラー！", message: message, preferredStyle: .alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.destructive, handler: nil)
+        
+        alertController.addAction(OKAction)
+        
+        self.present(alertController, animated: true, completion:nil)
+        
+    }
 
 }

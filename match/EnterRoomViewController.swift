@@ -323,7 +323,10 @@ class EnterRoomViewController: UIViewController, UIImagePickerControllerDelegate
             targetView.roomId = roomId
             targetView.userId = userId
             
-            self.navigationController?.pushViewController(targetView, animated: true)
+            //self.navigationController?.pushViewController(targetView, animated: true)
+            let navi = UINavigationController(rootViewController: targetView)
+            
+            self.present(navi, animated: true, completion: nil)
         }
         
     }
