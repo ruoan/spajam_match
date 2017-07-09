@@ -230,7 +230,8 @@ class MakeChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 
                 if (json["status"] == 200) {
-
+                    self.showNextView()
+                    
                 } else {
                     self.displayErrorAlert(message:"投票に失敗しました。")
                 }
@@ -260,5 +261,15 @@ class MakeChoiceViewController: UIViewController, UITableViewDelegate, UITableVi
     func refresh()
     {
         getMembers()
+    }
+    
+    func showNextView(){
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    
+        if let targetView = storyboard.instantiateInitialViewController() {
+           self.navigationController?.pushViewController(targetView, animated: true)
+        }
+        
     }
 }
