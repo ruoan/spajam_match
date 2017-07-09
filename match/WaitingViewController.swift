@@ -15,6 +15,12 @@ class WaitingViewController: UIViewController {
 
     @IBOutlet weak var loading: UIActivityIndicatorView!
 
+    @IBOutlet weak var imageView: UIImageView!
+    
+    var roomid:String?
+    var memberid:String?
+    var match:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -22,6 +28,20 @@ class WaitingViewController: UIViewController {
         
         self.loading.startAnimating()
         
+        self.getMatchings()
+        
+        //Thread.sleep(forTimeInterval: 5.0)
+        
+        //let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
+        
+        // ブラーエフェクトからエフェクトビューを生成
+        //var visualEffectView = UIVisualEffectView(effect: blurEffect)
+        
+        // エフェクトビューのサイズを指定（オリジナル画像と同じサイズにする）
+        //visualEffectView.frame = self.imageView.bounds
+        
+        // 画像にエフェクトビューを貼り付ける
+        //self.imageView.addSubview(visualEffectView)
         
 
         // Do any additional setup after loading the view.
@@ -31,15 +51,18 @@ class WaitingViewController: UIViewController {
         var json:JSON = JSON("")
         let URL = "https://y40dae48w6.execute-api.ap-northeast-1.amazonaws.com/dev/matchings"
         let parameters = [
-            "param": ""] as [String : Any]
+            "room_id": "spajam2017_2",
+            "member_id": "member001"] as [String : Any]
         Alamofire.request(URL, method: .get, parameters: parameters)
             .responseJSON { response in
                 json = JSON(response.result.value)
                 print(json)
                 
-                DispatchQueue.main.async() {
-                    
-                }
+                //if; json["body"]["text"] == "finished"{
+                    self.goNextFunc()
+                //} else {
+                //    self.getMatchings()
+                //}
                 
         }
         
@@ -52,9 +75,12 @@ class WaitingViewController: UIViewController {
     
 
     @IBAction func goNext(_ sender: Any) {
+        self.goNextFunc()
+    }
+    func goNextFunc(){
         let next:ResultViewController = storyboard!.instantiateViewController(withIdentifier: "resultView") as! ResultViewController
         
-        next.result = true
+        next.result = false
         
         let navi = UINavigationController(rootViewController: next)
         
